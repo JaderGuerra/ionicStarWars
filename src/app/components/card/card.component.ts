@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Film } from 'src/app/shared/models/film';
 
 @Component({
@@ -10,10 +11,12 @@ export class CardComponent implements OnInit {
 
   @Input() filmsArray:Film[]
   
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {}
-  verCharacter(character){
-    console.log(character);
+
+  verCharacter(character:Film){
+    this.router.navigate(['/characters',character.episode_id])
   } 
+  
 }

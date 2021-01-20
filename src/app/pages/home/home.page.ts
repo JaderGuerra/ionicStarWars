@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Film, ResponseFilm } from 'src/app/shared/models/film';
+import { Component,OnInit } from '@angular/core';
+import { Film,} from 'src/app/shared/models/film';
 import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
 @Component({
@@ -9,11 +9,9 @@ import { StarwarsService } from 'src/app/shared/services/starwars.service';
 })
 export class HomePage implements OnInit{
 
-  films:Film[]=[]
+  films:Film[] = []
 
-  constructor(public startWarsSVC:StarwarsService) {
-    
-  }
+  constructor(public startWarsSVC:StarwarsService) {}
 
   ngOnInit():void{
     this.showFilms()
@@ -25,8 +23,7 @@ export class HomePage implements OnInit{
     })
   }
 
-  /* verCharacter(){
-    console.log(character);
-  } */
+ 
+
 
 }
