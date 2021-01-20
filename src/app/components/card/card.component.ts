@@ -15,8 +15,8 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {}
 
-  verCharacter(character:Film){
-    this.router.navigate(['/characters',character.episode_id])
+  verCharacter(index:number){
+    this.router.navigate(['/characters',index])
   } 
   
 }
