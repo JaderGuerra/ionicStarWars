@@ -1,15 +1,32 @@
-<ion-card>
-  <ion-card-header>
-   <ion-card-title>Nombre</ion-card-title>
-  </ion-card-header>
+<ion-grid fixed>
+  <ion-row >
+    <ion-col size="12"  size-sm="6" size-lg="4" *ngFor="let film of filmsArray">
+      <ion-card >
+        
+        <ion-card-header>
+          <ion-card-title class="title">{{film.title}}</ion-card-title>
+        </ion-card-header>
 
-  <ion-card-content>
-    2. Número de episodio
-    3. Director
-    4. Personajes: Enlace que me permita ir a la página de personajes del film
+        <ion-card-content>
 
-    <ion-item>
-      <ion-button  slot="end">Personajes</ion-button>
-    </ion-item>
-  </ion-card-content>
-</ion-card>
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="6">
+                <p>Episodio : {{film.episode_id}}</p>
+              </ion-col>
+              <ion-col size="6">
+                <ion-card-header>Director : {{film.director}}</ion-card-header>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      
+          <ion-item>
+            <ion-button (click)="verCharacter(film)" slot="end">Personajes</ion-button>
+          </ion-item>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

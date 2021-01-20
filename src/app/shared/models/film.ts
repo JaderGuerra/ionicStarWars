@@ -2,7 +2,7 @@ export interface ResponseFilm {
     count:    number;
     next:     null;
     previous: null;
-    results:  Film;
+    results:  Film[];
 }
 
 export interface Film {

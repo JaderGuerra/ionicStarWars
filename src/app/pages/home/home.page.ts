@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Film, ResponseFilm } from 'src/app/shared/models/film';
 import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
@@ -7,19 +7,26 @@ import { StarwarsService } from 'src/app/shared/services/starwars.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
   films:Film[]=[]
 
   constructor(public startWarsSVC:StarwarsService) {
+    
+  }
+
+  ngOnInit():void{
     this.showFilms()
-    console.log();
   }
 
   showFilms(){
     this.startWarsSVC.getFilms().subscribe((resp) => {
-      this.films.push(resp.results)
+      this.films = resp.results
     })
   }
+
+  /* verCharacter(){
+    console.log(character);
+  } */
 
 }
