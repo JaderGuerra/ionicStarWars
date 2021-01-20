@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Film, ResponseFilm } from 'src/app/shared/models/film';
+import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  films:Film[]=[]
+
+  constructor(public startWarsSVC:StarwarsService) {
+    this.showFilms()
+    console.log();
+  }
+
+  showFilms(){
+    this.startWarsSVC.getFilms().subscribe((resp) => {
+      this.films.push(resp.results)
+    })
+  }
 
 }
