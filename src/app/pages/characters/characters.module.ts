@@ -8,6 +8,7 @@ import { CharactersPageRoutingModule } from './characters-routing.module';
 
 import { CharactersPage } from './characters.page';
 import { CardComponent } from 'src/app/components/card/card.component';
+import { NameFilmsComponent } from 'src/app/components/name-films/name-films.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { CardComponent } from 'src/app/components/card/card.component';
     IonicModule,
     CharactersPageRoutingModule
   ],
-  declarations: [CharactersPage,CardComponent]
+  declarations: [CharactersPage,CardComponent,NameFilmsComponent]
 })
 export class CharactersPageModule {}
