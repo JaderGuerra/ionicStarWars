@@ -10,6 +10,7 @@ import { CharactersPage } from './characters.page';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { NameFilmsComponent } from 'src/app/components/name-films/name-films.component';
 
+
 @NgModule({
   imports: [
     CommonModule,

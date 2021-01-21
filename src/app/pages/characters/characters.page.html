@@ -26,13 +26,13 @@
                 <ion-grid>
                   <ion-row class="ion-align-items-center">
                     <ion-col size="6">
-                      <p>
-                        Eye color : {{character.eye_color}}
+                      <p class="strong">
+                        Eye color : <span>{{character.eye_color}} </span>
                       </p>
                     </ion-col>
                     <ion-col size="6">
-                      <p>
-                        Gender : {{character.gender}}
+                      <p class="strong">
+                        Gender : <span>{{character.gender}} </span> 
                       </p>
                     </ion-col>
                     <ion-col size="12">
@@ -40,7 +40,9 @@
                         Films:
                       </p>
                       <div>
-                      <app-name-films [filmsName]="character.films"></app-name-films>
+                      <app-name-films [filmsName]="character.films">
+                      
+                      </app-name-films>
                       </div>
                       
                     </ion-col>
