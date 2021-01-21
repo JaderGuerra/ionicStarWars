@@ -2,6 +2,8 @@ import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
+import { Character } from "../../shared/models/film";
+
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.page.html',
@@ -9,21 +11,30 @@ import { StarwarsService } from 'src/app/shared/services/starwars.service';
 })
 export class CharactersPage implements OnInit {
 
-  characters:string[] = []
+  characters:Character[] = []
 
   constructor(private ac:ActivatedRoute,
               public starwarsSVC:StarwarsService) { }
 
   ngOnInit() {
-     this.verLisCharacters()
+     this.charactersSeleccionados()
       
   }
 
-  verLisCharacters(){
+  charactersSeleccionados(){
     const id = this.ac.snapshot.paramMap.get('id')
-    this.starwarsSVC.getCharacters(id).subscribe((resp) => {  
-      console.log(resp.characters);
+    this.starwarsSVC.getCharacters(id).subscribe((resp) => {
+      this.showCharacters(resp.characters)
     })
   }
+
+  showCharacters(characters:string[]){
+    characters.map((urlCharacters) => {
+      this.starwarsSVC.httpSVC.get(urlCharacters).subscribe((dataCharacters:Character) => {
+        this.characters.push(dataCharacters);
+      })
+    })
+  }
+
  
 }

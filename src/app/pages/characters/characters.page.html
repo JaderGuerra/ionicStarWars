@@ -8,5 +8,42 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-buttons>
+    <app-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="characters" 
+                  size="12" size-sm="6" 
+                  size-lg="4"
+                  *ngFor="let character of characters; let i= index">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title class="title">
+                  {{character.name}}
+                </ion-card-title>
+              </ion-card-header>
+      
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row class="ion-align-items-center">
+                    <ion-col size="6">
+                      <p>
+                        Eye color : {{character.eye_color}}
+                      </p>
+                    </ion-col>
+                    <ion-col size="6">
+                      <p>
+                        Gender : {{character.gender}}
+                      </p>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+      
+          </ion-col>
+      </ion-row>
+      </ion-grid>
+    </app-card>
+  </ion-buttons>
 </ion-content>

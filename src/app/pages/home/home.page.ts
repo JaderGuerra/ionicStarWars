@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Film,} from 'src/app/shared/models/film';
 import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
@@ -11,7 +12,7 @@ export class HomePage implements OnInit{
 
   films:Film[] = []
 
-  constructor(public startWarsSVC:StarwarsService) {}
+  constructor(public startWarsSVC:StarwarsService,private router:Router) {}
 
   ngOnInit():void{
     this.showFilms()
@@ -23,6 +24,10 @@ export class HomePage implements OnInit{
     })
   }
 
+
+   verCharacter(index:number){
+    this.router.navigate(['/characters',index])
+  } 
  
 
 

@@ -8,7 +8,7 @@ import { ResponseCharacter, ResponseFilm } from '../models/film';
 })
 export class StarwarsService {
 
-  constructor(private httpSVC:HttpClient) { }
+  constructor(public httpSVC:HttpClient) { }
 
   getFilms(){
     return this.httpSVC.get<ResponseFilm>('https://swapi.dev/api/films')

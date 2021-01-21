@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Film } from 'src/app/shared/models/film';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -9,14 +7,12 @@ import { Film } from 'src/app/shared/models/film';
 })
 export class CardComponent implements OnInit {
 
-  @Input() filmsArray:Film[]
+ 
   
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit() {}
 
-  verCharacter(index:number){
-    this.router.navigate(['/characters',index])
-  } 
+ 
   
 }
