@@ -4,13 +4,16 @@ import { StarwarsService } from 'src/app/shared/services/starwars.service';
 
 import { Character } from "../../shared/models/film";
 
+
+
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.page.html',
   styleUrls: ['./characters.page.scss'],
 })
 export class CharactersPage implements OnInit {
-
+  
+  
   characters:Character[] = []
 
   constructor(private ac:ActivatedRoute,
@@ -18,7 +21,6 @@ export class CharactersPage implements OnInit {
 
   ngOnInit() {
      this.charactersSeleccionados()
-      
   }
 
   charactersSeleccionados(){
@@ -29,10 +31,13 @@ export class CharactersPage implements OnInit {
   }
 
   showCharacters(characters:string[]){
+    
     characters.map((urlCharacters) => {
+     
       this.starwarsSVC.httpSVC.get(urlCharacters).subscribe((dataCharacters:Character) => {
         this.characters.push(dataCharacters);
       })
+    
     })
   }
 
