@@ -12,7 +12,7 @@ import { Character } from "../../shared/models/film";
 })
 export class CharactersPage implements OnInit {
   characters: Character[] = [];
-
+  value: string;
   constructor(
     private ac: ActivatedRoute,
     public starwarsSVC: StarwarsService,
@@ -41,5 +41,9 @@ export class CharactersPage implements OnInit {
           this._loading?.loading?.dismiss();
         });
     });
+  }
+
+  buscar(character) {
+    this.value = character.detail.value;
   }
 }
