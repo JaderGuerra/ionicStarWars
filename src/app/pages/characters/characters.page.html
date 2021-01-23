@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="films"></ion-back-button>
     </ion-buttons>
@@ -8,64 +8,54 @@
 </ion-header>
 
 <ion-content>
- 
+  <ion-grid>
+    <ion-row class="ion-justify-content-end">
+      <ion-col size="12" size-md="4">
+        <ion-searchbar inputmode="search" placeholder="Search...">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-   
- <ion-grid >
-  <ion-row class="ion-justify-content-end">
-    <ion-col size="12" size-md="4" >     
-        <ion-searchbar inputmode="search" 
-                      placeholder="Search...">
-        </ion-searchbar>    
-    </ion-col>
-  </ion-row>
-</ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        class="characters"
+        size="12"
+        size-sm="6"
+        size-lg="4"
+        *ngFor="let character of characters; let i= index"
+      >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="strong"> {{character.name}} </ion-card-title>
+          </ion-card-header>
 
-
-
-      <ion-grid>
-        <ion-row>
-          <ion-col class="characters" 
-                  size="12" size-sm="6" 
-                  size-lg="4"
-                  *ngFor="let character of characters; let i= index">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title class="strong">
-                  {{character.name}}
-                </ion-card-title>
-              </ion-card-header>
-      
-              <ion-card-content>
-                <ion-grid>
-                  <ion-row class="ion-align-items-center">
-                    <ion-col size="6">
-                      <p class="strong">
-                        Eye color : <span>{{character.eye_color}} </span>
-                      </p>
-                    </ion-col>
-                    <ion-col size="6">
-                      <p class="strong">
-                        Gender : <span>{{character.gender}} </span> 
-                      </p>
-                    </ion-col>
-                    <ion-col size="12">
-                      <p class="strong">
-                        Films:
-                      </p>
-                      <div>
-                      <app-name-films [filmsName]="character.films">
-                      
-                      </app-name-films>
-                      </div>
-                      
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-      </ion-row>
-      </ion-grid>
- 
+          <ion-card-content>
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col size="6">
+                  <p class="strong">
+                    Eye color : <span>{{character.eye_color}} </span>
+                  </p>
+                </ion-col>
+                <ion-col size="6">
+                  <p class="strong">
+                    Gender : <span>{{character.gender}} </span>
+                  </p>
+                </ion-col>
+                <ion-col size="12">
+                  <p class="strong">Films:</p>
+                  <div>
+                    <app-name-films [filmsName]="character.films">
+                    </app-name-films>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
